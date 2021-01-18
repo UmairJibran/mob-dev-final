@@ -15,6 +15,8 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: splash.SplashScreen(
+        loadingText: Text("Checking if logged in..."),
+        loaderColor: Theme.of(context).primaryColor,
         seconds: 3,
         navigateAfterSeconds: _loggedIn ? Home() : Login(),
       ),
