@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Orders extends StatelessWidget {
-  static final String pageRoute = "/orders";
-
+class YourAds extends StatelessWidget {
+  static final String pageRoute = "/page_route";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Your Orders"),
+        title: Text(
+          "Your Ads",
+        ),
         centerTitle: true,
       ),
       body: ListView(
@@ -46,7 +47,7 @@ class Orders extends StatelessWidget {
                     fontSize: 20,
                   ),
                 ),
-                Text("Pending"),
+                Text("Rejected"),
               ],
             ),
           ),
@@ -65,7 +66,7 @@ class Orders extends StatelessWidget {
                     fontSize: 20,
                   ),
                 ),
-                Text("Pending"),
+                Text("Accepted"),
               ],
             ),
           ),
