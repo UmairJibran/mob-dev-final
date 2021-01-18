@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../dummy.dart';
+
 class YourAds extends StatelessWidget {
   static final String pageRoute = "/page_route";
   @override
@@ -11,66 +13,32 @@ class YourAds extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: ListView(
-        children: <Widget>[
-          ListTile(
-            title: Text("Honda CD-70"),
-            leading: Image.network(
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Honda_cd_70.jpg/300px-Honda_cd_70.jpg",
+      body: ListView.builder(
+        itemBuilder: (_, index) {
+          return ListTile(
+            title: Text(myAds[index]["name"]),
+            leading: Container(
+              width: MediaQuery.of(context).size.width * 0.2,
+              child: Image.network(
+                myAds[index]["url"],
+              ),
             ),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "PKR: 5000",
+                  myAds[index]["price"],
                   style: TextStyle(
                     color: Colors.green,
-                    fontSize: 20,
+                    fontSize: 14,
                   ),
                 ),
-                Text("Pending"),
+                Text(myAds[index]["status"])
               ],
             ),
-          ),
-          ListTile(
-            title: Text("Honda CD-70"),
-            leading: Image.network(
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Honda_cd_70.jpg/300px-Honda_cd_70.jpg",
-            ),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "PKR: 5000",
-                  style: TextStyle(
-                    color: Colors.green,
-                    fontSize: 20,
-                  ),
-                ),
-                Text("Rejected"),
-              ],
-            ),
-          ),
-          ListTile(
-            title: Text("Honda CD-70"),
-            leading: Image.network(
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Honda_cd_70.jpg/300px-Honda_cd_70.jpg",
-            ),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "PKR: 5000",
-                  style: TextStyle(
-                    color: Colors.green,
-                    fontSize: 20,
-                  ),
-                ),
-                Text("Accepted"),
-              ],
-            ),
-          ),
-        ],
+          );
+        },
+        itemCount: myAds.length,
       ),
     );
   }
